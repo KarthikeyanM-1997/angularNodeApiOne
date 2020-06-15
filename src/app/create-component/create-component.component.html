@@ -1,0 +1,11 @@
+<h1>Create Student</h1>
+<form [formGroup]="createStudent" (ngSubmit)="createStudentFn()">
+    Name : <input type="text" formControlName="name" />
+    <button type="submit">Create</button> 
+</form>
+
+<h1>Create Mentor</h1>
+<form [formGroup]="createMentor" (ngSubmit)="createMentorFn()">
+    Name : <input type="text" formControlName="name" />
+    <button type="submit">Create</button> 
+</form>
