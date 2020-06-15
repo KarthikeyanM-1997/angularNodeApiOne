@@ -1,3 +1,6 @@
+<a routerLink="/create">Create</a> &nbsp; &nbsp; <a routerLink="/list">List</a> &nbsp; &nbsp; <a routerLink="/assign">Assign</a>
+<hr>
+
 <h1>Create Student</h1>
 <form [formGroup]="createStudent" (ngSubmit)="createStudentFn()">
     Name : <input type="text" formControlName="name" />
