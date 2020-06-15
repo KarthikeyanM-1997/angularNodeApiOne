@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { FormControl } from '@angular/forms';
 
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-assign-component',
   templateUrl: './assign-component.component.html',
@@ -12,7 +14,7 @@ import { FormControl } from '@angular/forms';
 })
 export class AssignComponentComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   studentList = [];
 
@@ -42,9 +44,11 @@ export class AssignComponentComponent implements OnInit {
 
     this.http.post("https://node-angular-one.herokuapp.com/addRel", { "studentName": this.studentName.value, "mentorName": this.mentorName.value }, { responseType: 'text' }).subscribe((data: any) => {
       console.log(data);
+      this.toastr.success('Added Relation!');
+      this.updateList();
     }, (err) => { console.log(err.error) });
 
-    this.updateList();
+
   }
 
 }
