@@ -13,6 +13,11 @@ import { AssignComponentComponent } from './assign-component/assign-component.co
 import { ListComponentComponent } from './list-component/list-component.component';
 import { IndexComponentComponent } from './index-component/index-component.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +30,9 @@ import { IndexComponentComponent } from './index-component/index-component.compo
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot() 
   ],
   providers: [],
   bootstrap: [AppComponent]

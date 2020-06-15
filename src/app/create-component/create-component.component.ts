@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-component',
@@ -14,7 +15,7 @@ export class CreateComponentComponent implements OnInit {
   createStudent: FormGroup;
   createMentor: FormGroup;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -32,12 +33,14 @@ export class CreateComponentComponent implements OnInit {
   createStudentFn() {
     this.http.post("https://node-angular-one.herokuapp.com/addStudent", this.createStudent.value, { responseType: 'text' }).subscribe((data) => {
       console.log(data);
+      this.toastr.success('Added Student!');
     }, (err) => { console.log(err.error) });
   }
 
   createMentorFn() {
     this.http.post("https://node-angular-one.herokuapp.com/addMentor", this.createMentor.value, { responseType: 'text' }).subscribe((data) => {
       console.log(data);
+      this.toastr.success('Added Mentor!');
     }, (err) => { console.log(err.error) });
   }
 
