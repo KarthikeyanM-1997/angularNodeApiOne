@@ -11,7 +11,7 @@ export class ListComponentComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  relList : any = {};
+  relList: any = {};
 
   keys = [];
 

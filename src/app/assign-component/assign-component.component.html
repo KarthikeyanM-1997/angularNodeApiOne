@@ -2,12 +2,12 @@
 
 <hr>
 Student :
-<select [formControl]="studentName">
+<select [formControl]="studentName" id='selectBox'>
     <option *ngFor="let item of studentList" [value]="item">{{item}}</option>
 </select>
 
 Mentor :
-<select [formControl]="mentorName">
+<select [formControl]="mentorName" >
     <option *ngFor="let item of mentorList" [value]="item">{{item}}</option>
 </select>
 

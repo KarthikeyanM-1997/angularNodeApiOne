@@ -41,12 +41,13 @@ export class AssignComponentComponent implements OnInit {
   }
 
   assign() {
-
-    this.http.post("https://node-angular-one.herokuapp.com/addRel", { "studentName": this.studentName.value, "mentorName": this.mentorName.value }, { responseType: 'text' }).subscribe((data: any) => {
+    let studValue = (<HTMLSelectElement>document.getElementById("selectBox")).value;
+    console.log(studValue + " : " + this.mentorName.value);
+    this.http.post("https://node-angular-one.herokuapp.com/addRel", { "studentName": studValue, "mentorName": this.mentorName.value }, { responseType: 'text' }).subscribe((data: any) => {
       console.log(data);
       this.toastr.success('Added Relation!');
       this.updateList();
-    }, (err) => { console.log(err.error) });
+    }, (err) => { console.log(err.error); });
 
 
   }
